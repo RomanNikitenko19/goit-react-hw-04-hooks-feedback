@@ -17,8 +17,8 @@ const Feedback = () => {
 
   // console.log(objOptions);
 
-  const increase = (event) => {
-    switch (event.target.textContent) {
+  const increase = (value) => {
+    switch (value) {
       case "good":
         setGood(good + 1);
         break;
@@ -56,7 +56,7 @@ const Feedback = () => {
           good={good}
           neutral={neutral}
           bad={bad}
-          total={countTotalFeedback()}
+          total={countTotalFeedback(good, neutral, bad)}
           positivePercentage={countPositiveFeedbackPercentage()}
         />
       ) : (
