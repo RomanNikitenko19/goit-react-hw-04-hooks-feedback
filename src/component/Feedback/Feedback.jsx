@@ -37,16 +37,13 @@ const Feedback = () => {
     }
   }
 
-  // const countTotalFeedback = (...array) => {
-  //   return [...array].reduce((total, elem) => {
-  //     return total + elem;
-  //   }, 0)
-  // };
-
-  const countTotalFeedback = () => good + neutral + bad;
+  const countTotalFeedback = (...array) => {
+    return array.reduce((total, elem) => total + elem, 0)
+  }
 
   const countPositiveFeedbackPercentage = () => {
-    return Math.round((good * 100) / countTotalFeedback());
+    let total = countTotalFeedback(good, neutral, bad);
+    return Math.round((good * 100) / total)
   }
 
   return (
